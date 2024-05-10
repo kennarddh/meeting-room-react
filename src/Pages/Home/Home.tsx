@@ -67,7 +67,7 @@ const Home: FC = () => {
 						<>
 							Meeting is on going until{' '}
 							{FormatDateTime(
-								new Date(CurrentlyActiveMeeting.startDatetime),
+								new Date(CurrentlyActiveMeeting.endDatetime),
 							)}
 							, Organized by{' '}
 							<strong>
