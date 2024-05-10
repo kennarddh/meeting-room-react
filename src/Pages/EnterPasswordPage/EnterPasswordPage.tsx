@@ -19,10 +19,11 @@ import {
 
 import { IPasswordEnteredState } from './Types'
 
-const EnterPasswordPage: FC<{ title: string; nextPageUrl: string }> = ({
-	title,
-	nextPageUrl,
-}) => {
+const EnterPasswordPage: FC<{
+	title: string
+	nextPageUrl: string
+	backUrl?: string | number
+}> = ({ title, nextPageUrl, backUrl = -1 }) => {
 	const [Password, SetPassword] = useState('')
 
 	const [ErrorMessage, SetErrorMessage] = useState<string>('')
@@ -32,7 +33,9 @@ const EnterPasswordPage: FC<{ title: string; nextPageUrl: string }> = ({
 	const NavigateHook = useNavigate()
 
 	const Back = useCallback(() => {
-		NavigateHook(-1)
+		// Without if it makes weird error
+		if (typeof backUrl === 'number') NavigateHook(backUrl)
+		else NavigateHook(backUrl)
 	}, [NavigateHook])
 
 	const Next = useCallback(() => {

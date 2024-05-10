@@ -36,6 +36,7 @@ const router = createBrowserRouter([
 							<EnterPasswordPage
 								title='Create Meeting: Step 1'
 								nextPageUrl='/new/2'
+								backUrl='/'
 							/>
 						),
 					},
