@@ -66,6 +66,37 @@ export const DataProvider: FC<IDataContextProvider> = ({ children }) => {
 		)
 	}, [])
 
+	const CurrentlyActiveMeetingID = useMemo(() => {
+		if (!SortedMeetings[0]) return null
+
+		if (SortedMeetings[0].startDatetime <= new Date().getTime())
+			return SortedMeetings[0].id
+
+		return null
+	}, [SortedMeetings])
+
+	const CurrentlyActiveMeeting = useMemo(
+		() =>
+			CurrentlyActiveMeetingID !== null
+				? GetMeetingByID(CurrentlyActiveMeetingID) ?? null
+				: null,
+		[GetMeetingByID, CurrentlyActiveMeetingID],
+	)
+
+	const NextMeetingID = useMemo(() => {
+		if (!SortedMeetings[0]) return null
+
+		return SortedMeetings[0].id
+	}, [SortedMeetings])
+
+	const NextMeeting = useMemo(
+		() =>
+			NextMeetingID !== null
+				? GetMeetingByID(NextMeetingID) ?? null
+				: null,
+		[GetMeetingByID, NextMeetingID],
+	)
+
 	useEffect(() => {
 		const intervalID = setInterval(() => {
 			const currentDatetime = new Date().getTime()
@@ -88,6 +119,10 @@ export const DataProvider: FC<IDataContextProvider> = ({ children }) => {
 
 				Meetings,
 				SortedMeetings,
+				CurrentlyActiveMeetingID,
+				CurrentlyActiveMeeting,
+				NextMeetingID,
+				NextMeeting,
 				CreateMeeting,
 				GetMeetingByID,
 				DeleteMeeting,

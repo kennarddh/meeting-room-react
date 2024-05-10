@@ -5,6 +5,10 @@ export interface IDataContext {
 
 	Meetings: IMeeting[]
 	SortedMeetings: IMeeting[]
+	CurrentlyActiveMeetingID: string | null
+	CurrentlyActiveMeeting: IMeeting | null
+	NextMeetingID: string | null
+	NextMeeting: IMeeting | null
 	CreateMeeting: IDataCreate<IMeeting>
 	GetMeetingByID: IDataGetByID<IMeeting>
 	DeleteMeeting: IDataDelete

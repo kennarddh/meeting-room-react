@@ -96,6 +96,7 @@ export const IncomingMeetingsList = styled.div`
 	height: 90%;
 
 	display: grid;
+	justify-items: center;
 	grid-template-columns: 1fr;
 	grid-auto-rows: 30%;
 	gap: 20px;
