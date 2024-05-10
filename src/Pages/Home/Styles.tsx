@@ -107,6 +107,7 @@ export const IncomingMeetingsList = styled.div`
 
 export const IncomingMeeting = styled.div`
 	width: 90%;
+	max-height: 30%;
 
 	background-color: #458de6;
 
@@ -123,12 +124,12 @@ export const IncomingMeeting = styled.div`
 export const IncomingMeetingDatetime = styled.p`
 	color: #ffffff;
 
-	font-size: 2vw;
+	font-size: 1.5vw;
 `
 
 export const IncomingMeetingText = styled.p`
 	color: #ffffff;
 
 	font-weight: bold;
-	font-size: 2.2vw;
+	font-size: 1.9vw;
 `

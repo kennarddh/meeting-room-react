@@ -2,6 +2,13 @@ import { FC } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
+import FormatDate from 'Utils/FormatDate'
+import FormatTime from 'Utils/FormatTime'
+
+import useData from 'Hooks/useData'
+
+import Departements from 'Constants/Departements'
+
 import {
 	BookMeetingButton,
 	BookMeetingButtonContainer,
@@ -20,6 +27,8 @@ import {
 const Home: FC = () => {
 	const NavigateHook = useNavigate()
 
+	const { Meetings } = useData()
+
 	return (
 		<Container>
 			<Left>
@@ -37,67 +46,25 @@ const Home: FC = () => {
 			<Right>
 				<RightTitle>Coming Next</RightTitle>
 				<IncomingMeetingsList>
-					<IncomingMeeting>
-						<IncomingMeetingDatetime>
-							7:00 - 12:00 | DD - MM - YYYY
-						</IncomingMeetingDatetime>
-
-						<IncomingMeetingText>
-							Room Occupied by Finance
-						</IncomingMeetingText>
-					</IncomingMeeting>
-					<IncomingMeeting>
-						<IncomingMeetingDatetime>
-							7:00 - 12:00 | DD - MM - YYYY
-						</IncomingMeetingDatetime>
-
-						<IncomingMeetingText>
-							Room Occupied by Finance
-						</IncomingMeetingText>
-					</IncomingMeeting>
-					<IncomingMeeting>
-						<IncomingMeetingDatetime>
-							7:00 - 12:00 | DD - MM - YYYY
-						</IncomingMeetingDatetime>
-
-						<IncomingMeetingText>
-							Room Occupied by Finance
-						</IncomingMeetingText>
-					</IncomingMeeting>
-					<IncomingMeeting>
-						<IncomingMeetingDatetime>
-							7:00 - 12:00 | DD - MM - YYYY
-						</IncomingMeetingDatetime>
-
-						<IncomingMeetingText>
-							Room Occupied by Finance
-						</IncomingMeetingText>
-					</IncomingMeeting>
-					<IncomingMeeting>
-						<IncomingMeetingDatetime>
-							7:00 - 12:00 | DD - MM - YYYY
-						</IncomingMeetingDatetime>
-
-						<IncomingMeetingText>
-							Room Occupied by Finance
-						</IncomingMeetingText>
-					</IncomingMeeting>
-					<IncomingMeeting>
-						<IncomingMeetingDatetime>
-							7:00 - 12:00 | DD - MM - YYYY
-						</IncomingMeetingDatetime>
-						<IncomingMeetingText>
-							Room Occupied by Finance
-						</IncomingMeetingText>
-					</IncomingMeeting>
-					<IncomingMeeting>
-						<IncomingMeetingDatetime>
-							7:00 - 12:00 | DD - MM - YYYY
-						</IncomingMeetingDatetime>
-						<IncomingMeetingText>
-							Room Occupied by Finance
-						</IncomingMeetingText>
-					</IncomingMeeting>
+					{Meetings.map(meeting => (
+						<IncomingMeeting>
+							<IncomingMeetingDatetime>
+								{FormatTime(new Date(meeting.startDatetime))} -{' '}
+								{FormatTime(new Date(meeting.endDatetime))} |{' '}
+								{FormatDate(new Date(meeting.startDatetime))}
+							</IncomingMeetingDatetime>
+							<IncomingMeetingText>
+								Room Occupied by{' '}
+								{
+									Departements.find(
+										department =>
+											department.id ===
+											meeting.departementID,
+									)?.name ?? "Unknown Department"
+								}
+							</IncomingMeetingText>
+						</IncomingMeeting>
+					))}
 				</IncomingMeetingsList>
 			</Right>
 		</Container>
