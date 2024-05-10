@@ -97,7 +97,7 @@ export const IncomingMeetingsList = styled.div`
 
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-auto-rows: minmax(30%, auto);
+	grid-auto-rows: 30%;
 	gap: 20px;
 
 	padding-bottom: 20px;
@@ -107,7 +107,6 @@ export const IncomingMeetingsList = styled.div`
 
 export const IncomingMeeting = styled.div`
 	width: 90%;
-	max-height: 30%;
 
 	background-color: #458de6;
 

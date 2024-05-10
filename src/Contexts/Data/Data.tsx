@@ -30,6 +30,14 @@ export const DataProvider: FC<IDataContextProvider> = ({ children }) => {
 	}, [Data])
 
 	const Meetings = useMemo(() => Data.meetings, [Data])
+	const SortedMeetings = useMemo(
+		() =>
+			structuredClone(Data.meetings).sort(
+				(meeting1, meeting2) =>
+					meeting1.startDatetime - meeting2.startDatetime,
+			),
+		[Data],
+	)
 
 	const CreateMeeting = useCallback((meeting: IMeeting) => {
 		SetData(
@@ -79,6 +87,7 @@ export const DataProvider: FC<IDataContextProvider> = ({ children }) => {
 				Data,
 
 				Meetings,
+				SortedMeetings,
 				CreateMeeting,
 				GetMeetingByID,
 				DeleteMeeting,

@@ -4,6 +4,7 @@ export interface IDataContext {
 	Data: IData
 
 	Meetings: IMeeting[]
+	SortedMeetings: IMeeting[]
 	CreateMeeting: IDataCreate<IMeeting>
 	GetMeetingByID: IDataGetByID<IMeeting>
 	DeleteMeeting: IDataDelete

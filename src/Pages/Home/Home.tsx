@@ -6,6 +6,7 @@ import FormatDate from 'Utils/FormatDate'
 import FormatTime from 'Utils/FormatTime'
 
 import useData from 'Hooks/useData'
+import useTitle from 'Hooks/useTitle'
 
 import Departements from 'Constants/Departements'
 
@@ -27,7 +28,9 @@ import {
 const Home: FC = () => {
 	const NavigateHook = useNavigate()
 
-	const { Meetings } = useData()
+	const { SortedMeetings } = useData()
+
+	useTitle('Home')
 
 	return (
 		<Container>
@@ -46,7 +49,7 @@ const Home: FC = () => {
 			<Right>
 				<RightTitle>Coming Next</RightTitle>
 				<IncomingMeetingsList>
-					{Meetings.map(meeting => (
+					{SortedMeetings.map(meeting => (
 						<IncomingMeeting>
 							<IncomingMeetingDatetime>
 								{FormatTime(new Date(meeting.startDatetime))} -{' '}
@@ -55,13 +58,10 @@ const Home: FC = () => {
 							</IncomingMeetingDatetime>
 							<IncomingMeetingText>
 								Room Occupied by{' '}
-								{
-									Departements.find(
-										department =>
-											department.id ===
-											meeting.departementID,
-									)?.name ?? "Unknown Department"
-								}
+								{Departements.find(
+									department =>
+										department.id === meeting.departementID,
+								)?.name ?? 'Unknown Department'}
 							</IncomingMeetingText>
 						</IncomingMeeting>
 					))}
