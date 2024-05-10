@@ -78,13 +78,22 @@ const CreateMeeting3: FC = () => {
 		const minDatetime = structuredClone(StartDatetime)
 		const maxDatetime = structuredClone(StartDatetime)
 
-		minDatetime.setHours(7)
+		// TODO: Change when done. This is for easier testing
+		// minDatetime.setHours(7)
+		// minDatetime.setMinutes(0)
+		// minDatetime.setSeconds(0)
+
+		// maxDatetime.setHours(17)
+		// maxDatetime.setMinutes(0)
+		// maxDatetime.setSeconds(0)
+
+		minDatetime.setHours(0)
 		minDatetime.setMinutes(0)
 		minDatetime.setSeconds(0)
 
-		maxDatetime.setHours(17)
-		maxDatetime.setMinutes(0)
-		maxDatetime.setSeconds(0)
+		maxDatetime.setHours(23)
+		maxDatetime.setMinutes(59)
+		maxDatetime.setSeconds(59)
 
 		if (StartDatetime < minDatetime)
 			return SetErrorMessage(

@@ -58,6 +58,21 @@ export const DataProvider: FC<IDataContextProvider> = ({ children }) => {
 		)
 	}, [])
 
+	useEffect(() => {
+		const intervalID = setInterval(() => {
+			const currentDatetime = new Date().getTime()
+
+			SetData(prev => ({
+				...prev,
+				meetings: prev.meetings.filter(
+					meeting => meeting.endDatetime >= currentDatetime,
+				),
+			}))
+		}, 1000)
+
+		return () => clearInterval(intervalID)
+	})
+
 	return (
 		<DataContext.Provider
 			value={{
