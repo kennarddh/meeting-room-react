@@ -134,5 +134,5 @@ export const IncomingMeetingText = styled.p`
 	color: #ffffff;
 
 	font-weight: bold;
-	font-size: 1.9vw;
+	font-size: 1.7vw;
 `

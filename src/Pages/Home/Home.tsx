@@ -83,9 +83,23 @@ const Home: FC = () => {
 					)}
 				</LeftText>
 				<BookMeetingButtonContainer>
-					<BookMeetingButton onClick={() => NavigateHook('/new')}>
-						Book Now
-					</BookMeetingButton>
+					{CurrentlyActiveMeeting === null ? (
+						<BookMeetingButton onClick={() => NavigateHook('/new')}>
+							Book Now
+						</BookMeetingButton>
+					) : (
+						<BookMeetingButton
+							onClick={() =>
+								NavigateHook('/delete/1', {
+									state: {
+										meetingID: CurrentlyActiveMeeting.id,
+									} satisfies IDeleteMeetingState,
+								})
+							}
+						>
+							End Now
+						</BookMeetingButton>
+					)}
 				</BookMeetingButtonContainer>
 			</Left>
 			<Right>
