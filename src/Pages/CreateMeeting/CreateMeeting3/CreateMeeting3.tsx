@@ -65,6 +65,12 @@ const CreateMeeting3: FC = () => {
 				'Start datetime and end datetime must be on the same day.',
 			)
 
+		if (StartDatetime < new Date())
+			return SetErrorMessage('Start datetime cannot be smaller than now.')
+
+		if (EndDatetime < new Date())
+			return SetErrorMessage('End datetime cannot be smaller than now.')
+
 		const duration = EndDatetime.getTime() - StartDatetime.getTime()
 
 		if (duration === 0)
