@@ -56,6 +56,7 @@ const CreateMeeting2: FC = () => {
 				<DepartmentsContainer>
 					{Departements.map(departement => (
 						<DepartmentButton
+							key={departement.id}
 							onClick={() => SetDepartementID(departement.id)}
 							$selected={DepartementID === departement.id}
 						>

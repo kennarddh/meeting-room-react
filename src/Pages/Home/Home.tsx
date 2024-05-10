@@ -109,6 +109,7 @@ const Home: FC = () => {
 						meeting =>
 							meeting.id !== CurrentlyActiveMeeting?.id && (
 								<IncomingMeeting
+									key={meeting.id}
 									onClick={() =>
 										NavigateHook('/delete/1', {
 											state: {
