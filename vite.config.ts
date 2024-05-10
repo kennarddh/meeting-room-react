@@ -74,6 +74,8 @@ export default defineConfig(({ mode }) => {
 					'/Icons/apple-touch-icon-120x120.png',
 					'/Icons/apple-touch-icon-76x76.png',
 					'/Icons/apple-touch-icon-152x152.png',
+					'/Icons/favicon-512x512.png',
+					'/Icons/favicon-255x255.png',
 					'/Icons/favicon-196x196.png',
 					'/Icons/favicon-96x96.png',
 					'/Icons/favicon-32x32.png',
@@ -99,6 +101,11 @@ export default defineConfig(({ mode }) => {
 					theme_color: '#458de6',
 					display: 'standalone',
 					icons: [
+						{
+							type: 'image/png',
+							src: '/Icons/favicon-512x512.png',
+							sizes: '512x512',
+						},
 						{
 							type: 'image/png',
 							src: '/Icons/favicon-255x255.png',
