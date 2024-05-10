@@ -9,6 +9,7 @@ import { TitleProvider } from 'Contexts/Title'
 
 import CreateMeeting2 from 'Pages/CreateMeeting/CreateMeeting2/CreateMeeting2'
 import CreateMeeting3 from 'Pages/CreateMeeting/CreateMeeting3/CreateMeeting3'
+import DeleteMeeting from 'Pages/DeleteMeeting/DeleteMeeting'
 import EnterPasswordPage from 'Pages/EnterPasswordPage/EnterPasswordPage'
 import ErrorPage from 'Pages/ErrorPage/ErrorPage'
 import Home from 'Pages/Home/Home'
@@ -47,6 +48,25 @@ const router = createBrowserRouter([
 					{
 						path: '3',
 						element: <CreateMeeting3 />,
+					},
+				],
+			},
+			{
+				path: 'delete',
+				children: [
+					{
+						path: '1',
+						element: (
+							<EnterPasswordPage
+								title='Delete Meeting: Step 1'
+								nextPageUrl='/delete/2'
+								backUrl='/'
+							/>
+						),
+					},
+					{
+						path: '2',
+						element: <DeleteMeeting />,
 					},
 				],
 			},

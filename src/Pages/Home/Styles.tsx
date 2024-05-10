@@ -106,11 +106,12 @@ export const IncomingMeetingsList = styled.div`
 	overflow-y: scroll;
 `
 
-export const IncomingMeeting = styled.div`
+export const IncomingMeeting = styled.button`
 	width: 90%;
 
 	background-color: #458de6;
 
+	border: none;
 	border-radius: 12px;
 
 	padding: 10px 20px;
@@ -119,6 +120,8 @@ export const IncomingMeeting = styled.div`
 	justify-content: space-between;
 	align-items: flex-end;
 	flex-direction: column;
+
+	cursor: pointer;
 `
 
 export const IncomingMeetingDatetime = styled.p`

@@ -12,6 +12,8 @@ import useTitle from 'Hooks/useTitle'
 
 import Departements from 'Constants/Departements'
 
+import { IDeleteMeetingState } from 'Pages/DeleteMeeting/Types'
+
 import {
 	BookMeetingButton,
 	BookMeetingButtonContainer,
@@ -92,7 +94,15 @@ const Home: FC = () => {
 					{SortedMeetings.map(
 						meeting =>
 							meeting.id !== CurrentlyActiveMeeting?.id && (
-								<IncomingMeeting>
+								<IncomingMeeting
+									onClick={() =>
+										NavigateHook('/delete/1', {
+											state: {
+												meetingID: meeting.id,
+											} satisfies IDeleteMeetingState,
+										})
+									}
+								>
 									<IncomingMeetingDatetime>
 										{FormatTime(
 											new Date(meeting.startDatetime),

@@ -1,6 +1,6 @@
 import { FC, useCallback, useState } from 'react'
 
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import Input from 'Components/Input/Input'
 import Title from 'Components/Title/Title'
@@ -32,6 +32,8 @@ const EnterPasswordPage: FC<{
 
 	const NavigateHook = useNavigate()
 
+	const { state } = useLocation()
+
 	const Back = useCallback(() => {
 		// Without if it makes weird error
 		if (typeof backUrl === 'number') NavigateHook(backUrl)
@@ -42,9 +44,9 @@ const EnterPasswordPage: FC<{
 		if (Password !== 'Admin') return SetErrorMessage('Wrong password.')
 
 		NavigateHook(nextPageUrl, {
-			state: { password: true } satisfies IPasswordEnteredState,
+			state: { ...state, password: true } satisfies IPasswordEnteredState,
 		})
-	}, [Password, NavigateHook])
+	}, [Password, NavigateHook, state])
 
 	return (
 		<Container>
