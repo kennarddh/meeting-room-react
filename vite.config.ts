@@ -62,5 +62,6 @@ export default defineConfig(({ mode }) => {
 		build: {
 			outDir: 'build',
 		},
+		base: mode === 'production' ? '/meeting-room-react/' : '',
 	}
 })
