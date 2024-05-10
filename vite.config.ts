@@ -3,6 +3,8 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 
 import { checker } from 'vite-plugin-checker'
+import mkcert from 'vite-plugin-mkcert'
+import { VitePWA } from 'vite-plugin-pwa'
 import svgr from 'vite-plugin-svgr'
 
 import { dirname, resolve } from 'node:path'
@@ -40,6 +42,7 @@ export default defineConfig(({ mode }) => {
 
 	return {
 		plugins: [
+			mode === 'development' ? mkcert() : null,
 			react(),
 			svgr(),
 			mode === 'development'
@@ -50,6 +53,116 @@ export default defineConfig(({ mode }) => {
 						},
 					})
 				: null,
+			VitePWA({
+				devOptions: {
+					enabled: mode === 'development',
+					type: 'module',
+					navigateFallback: 'index.html',
+				},
+				registerType: 'autoUpdate',
+				workbox: {
+					globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+					cleanupOutdatedCaches: false,
+					sourcemap: true,
+				},
+				includeAssets: [
+					'/Icons/apple-touch-icon-57x57.png',
+					'/Icons/apple-touch-icon-114x114.png',
+					'/Icons/apple-touch-icon-72x72.png',
+					'/Icons/apple-touch-icon-144x144.png',
+					'/Icons/apple-touch-icon-60x60.png',
+					'/Icons/apple-touch-icon-120x120.png',
+					'/Icons/apple-touch-icon-76x76.png',
+					'/Icons/apple-touch-icon-152x152.png',
+					'/Icons/favicon-196x196.png',
+					'/Icons/favicon-96x96.png',
+					'/Icons/favicon-32x32.png',
+					'/Icons/favicon-16x16.png',
+					'/Icons/favicon-128.png',
+					'/Icons/favicon-196x196.png',
+					'/Icons/favicon-96x96.png',
+					'/Icons/favicon-32x32.png',
+					'/Icons/favicon-16x16.png',
+					'/Icons/favicon-128.png',
+					'/Icons/Maskable/maskable_icon_x48.png',
+					'/Icons/Maskable/maskable_icon_x72.png',
+					'/Icons/Maskable/maskable_icon_x96.png',
+					'/Icons/Maskable/maskable_icon_x128.png',
+					'/Icons/Maskable/maskable_icon_x192.png',
+					'/Icons/Maskable/maskable_icon_x375.png',
+				],
+				manifest: {
+					start_url: '/index.html',
+					name: 'Meeting Room React',
+					short_name: 'Meeting Room',
+					description: 'Meeting Room React',
+					theme_color: '#458de6',
+					display: 'standalone',
+					icons: [
+						{
+							type: 'image/png',
+							src: '/Icons/favicon-196x196.png',
+							sizes: '196x196',
+						},
+						{
+							type: 'image/png',
+							src: '/Icons/favicon-96x96.png',
+							sizes: '96x96',
+						},
+						{
+							type: 'image/png',
+							src: '/Icons/favicon-32x32.png',
+							sizes: '32x32',
+						},
+						{
+							type: 'image/png',
+							src: '/Icons/favicon-16x16.png',
+							sizes: '16x16',
+						},
+						{
+							type: 'image/png',
+							src: '/Icons/favicon-128.png',
+							sizes: '128x128',
+						},
+						{
+							type: 'image/png',
+							src: '/Icons/Maskable/maskable_icon_x48.png',
+							sizes: '48x48',
+							purpose: 'maskable',
+						},
+						{
+							type: 'image/png',
+							src: '/Icons/Maskable/maskable_icon_x72.png',
+							sizes: '72x72',
+							purpose: 'maskable',
+						},
+						{
+							type: 'image/png',
+							src: '/Icons/Maskable/maskable_icon_x96.png',
+							sizes: '96x96',
+							purpose: 'maskable',
+						},
+						{
+							type: 'image/png',
+							src: '/Icons/Maskable/maskable_icon_x128.png',
+							sizes: '128x128',
+							purpose: 'maskable',
+						},
+						{
+							type: 'image/png',
+							src: '/Icons/Maskable/maskable_icon_x192.png',
+							sizes: '192x192',
+							purpose: 'maskable',
+						},
+						{
+							type: 'image/png',
+							src: '/Icons/Maskable/maskable_icon_x375.png',
+							sizes: '375x375',
+							purpose: 'maskable',
+						},
+					],
+				},
+			}),
 		],
 		resolve: {
 			alias: resolveAlias,
