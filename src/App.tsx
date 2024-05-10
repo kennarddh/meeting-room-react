@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 
-import ErrorPage from 'Components/ErrorPage/ErrorPage'
+import ErrorPage from 'Pages/ErrorPage/ErrorPage'
 import MainOutlet from 'Components/MainOutlet/MainOutlet'
 
 import { DataProvider } from 'Contexts/Data/Data'
