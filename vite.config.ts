@@ -77,7 +77,6 @@ export default defineConfig(({ mode }) => {
 					`${base}/Icons/apple-touch-icon76x76.png`,
 					`${base}/Icons/apple-touch-icon152x152.png`,
 					`${base}/Icons/favicon-512x512.png`,
-					`${base}/Icons/favicon-255x255.png`,
 					`${base}/Icons/favicon-196x196.png`,
 					`${base}/Icons/favicon-96x96.png`,
 					`${base}/Icons/favicon-32x32.png`,
@@ -107,11 +106,6 @@ export default defineConfig(({ mode }) => {
 							type: 'image/png',
 							src: `${base}/Icons/favicon-512x512.png`,
 							sizes: '512x512',
-						},
-						{
-							type: 'image/png',
-							src: `${base}/Icons/favicon-255x255.png`,
-							sizes: '255x255',
 						},
 						{
 							type: 'image/png',
