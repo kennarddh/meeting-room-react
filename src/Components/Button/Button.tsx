@@ -10,7 +10,7 @@ const Button = styled.button<IButton>`
 	width: 70%;
 	height: ${({ height }) => height ?? '100%'};
 
-	font-size: ${({ fontSize }) => fontSize}px;
+	font-size: ${({ fontSize }) => fontSize ?? 16}px;
 
 	color: white;
 

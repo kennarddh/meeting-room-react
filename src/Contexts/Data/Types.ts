@@ -13,22 +13,12 @@ export interface IDataContextProvider {
 	children: ReactNode
 }
 
-export enum IDepartment {
-	Operation,
-	GeneralAffair,
-	Finance,
-	BusinessContract,
-	Project,
-	Marketing,
-	Executive,
-}
-
 export interface IMeeting {
 	id: string
 	name: string
 	startDate: number
 	endDate: number
-	departement: IDepartment
+	departementID: string
 }
 
 export interface IData {

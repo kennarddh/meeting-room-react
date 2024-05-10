@@ -15,6 +15,8 @@ import {
 	TitleContainer,
 } from 'Pages/Styles'
 
+import { IPasswordEnteredState } from './Types'
+
 const EnterPasswordPage: FC<{ title: string; nextPageUrl: string }> = ({
 	title,
 	nextPageUrl,
@@ -33,7 +35,7 @@ const EnterPasswordPage: FC<{ title: string; nextPageUrl: string }> = ({
 		if (Password !== 'Admin') return
 
 		NavigateHook(nextPageUrl, {
-			state: { password: true } as IPasswordEnteredState,
+			state: { password: true } satisfies IPasswordEnteredState,
 		})
 	}, [Password, NavigateHook])
 
@@ -55,12 +57,8 @@ const EnterPasswordPage: FC<{ title: string; nextPageUrl: string }> = ({
 				/>
 			</ContentContainer>
 			<ButtonsContainer>
-				<CreateMeetingButton fontSize={16} onClick={Back}>
-					Back
-				</CreateMeetingButton>
-				<CreateMeetingButton fontSize={16} onClick={Next}>
-					Next
-				</CreateMeetingButton>
+				<CreateMeetingButton onClick={Back}>Back</CreateMeetingButton>
+				<CreateMeetingButton onClick={Next}>Next</CreateMeetingButton>
 			</ButtonsContainer>
 		</Container>
 	)

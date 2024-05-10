@@ -1,3 +1,3 @@
-interface IPasswordEnteredState {
-	password: true
+export interface IDepartementSelectedState {
+	departmentID: string
 }

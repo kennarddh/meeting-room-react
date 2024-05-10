@@ -1,12 +1,14 @@
 import { FC, useCallback, useState } from 'react'
 
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 
-import Input from 'Components/Input/Input'
 import Title from 'Components/Title/Title'
 
 import useTitle from 'Hooks/useTitle'
 
+import Departements from 'Constants/Departements'
+
+import { IPasswordEnteredState } from 'Pages/EnterPasswordPage/Types'
 import {
 	ButtonsContainer,
 	Container,
@@ -15,24 +17,35 @@ import {
 	TitleContainer,
 } from 'Pages/Styles'
 
+import { DepartmentButton, DepartmentsContainer } from './Styles'
+import { IDepartementSelectedState } from './Types'
+
 const CreateMeeting2: FC = () => {
-	const [Password, SetPassword] = useState('')
+	const [DepartementID, SetDepartementID] = useState<string | null>(null)
 
 	useTitle('Create Meeting: Step 2')
 
 	const NavigateHook = useNavigate()
+
+	const { state } = useLocation()
+
+	const State = state as undefined | Partial<IPasswordEnteredState>
 
 	const Back = useCallback(() => {
 		NavigateHook(-1)
 	}, [NavigateHook])
 
 	const Next = useCallback(() => {
-		if (Password !== 'Admin') return
-
+		if (DepartementID === null) return
+ 
 		NavigateHook('../3', {
-			state: { password: true } as IPasswordEnteredState,
+			state: {
+				departmentID: DepartementID,
+			} satisfies IDepartementSelectedState,
 		})
-	}, [Password, NavigateHook])
+	}, [NavigateHook, DepartementID])
+
+	if (!State?.password) return <Navigate to='../' />
 
 	return (
 		<Container>
@@ -40,22 +53,23 @@ const CreateMeeting2: FC = () => {
 				<Title>Create Meeting: Step 2</Title>
 			</TitleContainer>
 			<ContentContainer>
-				<Input
-					id='password'
-					inputProps={{
-						type: 'password',
-						value: Password,
-						onChange: event => SetPassword(event.target.value),
-					}}
-					style={{ width: '40%' }}
-					text='Password'
-				/>
+				<DepartmentsContainer>
+					{Departements.map(departement => (
+						<DepartmentButton
+							onClick={() => SetDepartementID(departement.id)}
+							$selected={DepartementID === departement.id}
+						>
+							{departement.name}
+						</DepartmentButton>
+					))}
+				</DepartmentsContainer>
 			</ContentContainer>
 			<ButtonsContainer>
-				<CreateMeetingButton fontSize={16} onClick={Back}>
-					Back
-				</CreateMeetingButton>
-				<CreateMeetingButton fontSize={16} onClick={Next}>
+				<CreateMeetingButton onClick={Back}>Back</CreateMeetingButton>
+				<CreateMeetingButton
+					onClick={Next}
+					disabled={DepartementID === null}
+				>
 					Next
 				</CreateMeetingButton>
 			</ButtonsContainer>

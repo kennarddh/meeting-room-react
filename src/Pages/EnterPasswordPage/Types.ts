@@ -1,3 +1,3 @@
-interface IPasswordEnteredState {
+export interface IPasswordEnteredState {
 	password: true
 }
