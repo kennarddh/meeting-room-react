@@ -16,7 +16,7 @@ import {
 } from '../Styles'
 
 const CreateMeeting1: FC = () => {
-	const [Passoword, SetPassoword] = useState('')
+	const [Password, SetPassword] = useState('')
 
 	useTitle('Create Meeting: Step 1')
 
@@ -25,6 +25,14 @@ const CreateMeeting1: FC = () => {
 	const Back = useCallback(() => {
 		NavigateHook(-1)
 	}, [NavigateHook])
+
+	const Next = useCallback(() => {
+		if (Password !== 'Admin') return
+
+		NavigateHook('../2', {
+			state: { password: true } as IPasswordEnteredState,
+		})
+	}, [Password, NavigateHook])
 
 	return (
 		<Container>
@@ -36,8 +44,8 @@ const CreateMeeting1: FC = () => {
 					id='password'
 					inputProps={{
 						type: 'password',
-						value: Passoword,
-						onChange: event => SetPassoword(event.target.value),
+						value: Password,
+						onChange: event => SetPassword(event.target.value),
 					}}
 					style={{ width: '40%' }}
 					text='Password'
@@ -47,7 +55,9 @@ const CreateMeeting1: FC = () => {
 				<CreateMeetingButton fontSize={16} onClick={Back}>
 					Back
 				</CreateMeetingButton>
-				<CreateMeetingButton fontSize={16}>Next</CreateMeetingButton>
+				<CreateMeetingButton fontSize={16} onClick={Next}>
+					Next
+				</CreateMeetingButton>
 			</ButtonsContainer>
 		</Container>
 	)
