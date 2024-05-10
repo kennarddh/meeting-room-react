@@ -15,9 +15,8 @@ export interface IDataContextProvider {
 
 export interface IMeeting {
 	id: string
-	name: string
-	startDate: number
-	endDate: number
+	startDatetime: number
+	endDatetime: number
 	departementID: string
 }
 

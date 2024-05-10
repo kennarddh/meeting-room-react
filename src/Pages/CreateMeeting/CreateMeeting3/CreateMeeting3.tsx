@@ -5,6 +5,9 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import DateTimePickerInput from 'Components/DateTimePickerInput/DateTimePickerInput'
 import Title from 'Components/Title/Title'
 
+import IsSameDate from 'Utils/IsSameDate'
+
+import useData from 'Hooks/useData'
 import useTitle from 'Hooks/useTitle'
 
 import Departements from 'Constants/Departements'
@@ -31,6 +34,8 @@ const CreateMeeting3: FC = () => {
 
 	const NavigateHook = useNavigate()
 
+	const { CreateMeeting } = useData()
+
 	const { state } = useLocation()
 
 	const State = state as undefined | Partial<IDepartementSelectedState>
@@ -40,10 +45,74 @@ const CreateMeeting3: FC = () => {
 	}, [NavigateHook])
 
 	const Next = useCallback(() => {
-		SetErrorMessage('err')
+		if (
+			!(
+				State?.departmentID &&
+				Departements.map(deparatment => deparatment.id).includes(
+					State.departmentID as (typeof Departements)[number]['id'],
+				)
+			)
+		)
+			return SetErrorMessage('Invalid department. Should not happen.')
 
-		// NavigateHook('/')
-	}, [NavigateHook])
+		if (!StartDatetime)
+			return SetErrorMessage('Start datetime cannot be empty.')
+		if (!EndDatetime)
+			return SetErrorMessage('End datetime cannot be empty.')
+
+		if (!IsSameDate(StartDatetime, EndDatetime))
+			return SetErrorMessage(
+				'Start datetime and end datetime must be on the same day.',
+			)
+
+		const duration = EndDatetime.getTime() - StartDatetime.getTime()
+
+		if (duration === 0)
+			return SetErrorMessage('Duration must be greater than 0.')
+
+		if (duration < 0)
+			return SetErrorMessage(
+				'End datetime cannot be greater than start datetime.',
+			)
+
+		const minDatetime = structuredClone(StartDatetime)
+		const maxDatetime = structuredClone(StartDatetime)
+
+		minDatetime.setHours(7)
+		minDatetime.setMinutes(0)
+		minDatetime.setSeconds(0)
+
+		maxDatetime.setHours(17)
+		maxDatetime.setMinutes(0)
+		maxDatetime.setSeconds(0)
+
+		if (StartDatetime < minDatetime)
+			return SetErrorMessage(
+				'Start datetime cannot be smaller than 7:00.',
+			)
+
+		if (StartDatetime > maxDatetime)
+			return SetErrorMessage(
+				'Start datetime cannot be greater than 17:00.',
+			)
+
+		if (EndDatetime < minDatetime)
+			return SetErrorMessage('End datetime cannot be smaller than 7:00.')
+
+		if (EndDatetime > maxDatetime)
+			return SetErrorMessage('End datetime cannot be greater than 17:00.')
+
+		CreateMeeting({
+			id: crypto.randomUUID(),
+			departementID: State.departmentID,
+			startDatetime: StartDatetime.getTime(),
+			endDatetime: EndDatetime.getTime(),
+		})
+
+		// TODO: Check if datetime overlap with other meeting
+
+		NavigateHook('/')
+	}, [NavigateHook, SetErrorMessage, EndDatetime, StartDatetime, State])
 
 	if (
 		!(
