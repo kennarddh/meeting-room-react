@@ -38,15 +38,16 @@ const EnterPasswordPage: FC<{
 		// Without if it makes weird error
 		if (typeof backUrl === 'number') NavigateHook(backUrl)
 		else NavigateHook(backUrl)
-	}, [NavigateHook])
+	}, [NavigateHook, backUrl])
 
 	const Next = useCallback(() => {
+		// eslint-disable-next-line security/detect-possible-timing-attacks
 		if (Password !== 'Admin') return SetErrorMessage('Wrong password.')
 
 		NavigateHook(nextPageUrl, {
 			state: { ...state, password: true } satisfies IPasswordEnteredState,
 		})
-	}, [Password, NavigateHook, state])
+	}, [Password, NavigateHook, state, nextPageUrl])
 
 	return (
 		<Container>

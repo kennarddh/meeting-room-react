@@ -41,7 +41,7 @@ const DeleteMeeting: FC = () => {
 		DeleteMeeting(State.meetingID)
 
 		NavigateHook('/')
-	}, [NavigateHook, DeleteMeeting])
+	}, [NavigateHook, DeleteMeeting,State])
 
 	if (!(State?.password && State?.meetingID)) return <Navigate to='../' />
 
