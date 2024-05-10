@@ -7,7 +7,9 @@ export const StyledLabel = styled.label`
 	flex-direction: column;
 	gap: 5px;
 
-	border-bottom: 1px solid #808080;
+	border-bottom: 1px solid #ffffff;
+
+	color: #ffffff;
 
 	padding-bottom: 10px;
 `

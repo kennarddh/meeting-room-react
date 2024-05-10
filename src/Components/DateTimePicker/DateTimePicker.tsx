@@ -11,9 +11,9 @@ const DateTimePicker: FC<IDateTimePicker> = props => {
 	return (
 		<StyledDateTimePicker
 			calendarIcon={
-				<FontAwesomeIcon icon={faCalendar} size='lg' color='#458de6' />
+				<FontAwesomeIcon icon={faCalendar} size='lg' color='#ffffff' />
 			}
-			clearIcon={<FontAwesomeIcon icon={faX} size='lg' color='#458de6' />}
+			clearIcon={<FontAwesomeIcon icon={faX} size='lg' color='#ffffff' />}
 			locale='en-GB' // Use `en-GB` because when using `id-ID` the time separator is `.`
 			onChange={value => props.onChange?.(value)}
 			disableClock // The clock is little buggy like sometimes the clock doesn't close

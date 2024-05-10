@@ -8,6 +8,7 @@ import { DataProvider } from 'Contexts/Data/Data'
 import { TitleProvider } from 'Contexts/Title'
 
 import CreateMeeting2 from 'Pages/CreateMeeting/CreateMeeting2/CreateMeeting2'
+import CreateMeeting3 from 'Pages/CreateMeeting/CreateMeeting3/CreateMeeting3'
 import EnterPasswordPage from 'Pages/EnterPasswordPage/EnterPasswordPage'
 import ErrorPage from 'Pages/ErrorPage/ErrorPage'
 import Home from 'Pages/Home/Home'
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
 					{
 						path: '2',
 						element: <CreateMeeting2 />,
+					},
+					{
+						path: '3',
+						element: <CreateMeeting3 />,
 					},
 				],
 			},
