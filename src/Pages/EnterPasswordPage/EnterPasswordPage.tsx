@@ -10,9 +10,11 @@ import useTitle from 'Hooks/useTitle'
 import {
 	ButtonsContainer,
 	Container,
-	ContentContainer,
 	CreateMeetingButton,
+	ErrorText,
+	InnerContentContainer,
 	TitleContainer,
+	VerticalContentContainer,
 } from 'Pages/Styles'
 
 import { IPasswordEnteredState } from './Types'
@@ -23,6 +25,8 @@ const EnterPasswordPage: FC<{ title: string; nextPageUrl: string }> = ({
 }) => {
 	const [Password, SetPassword] = useState('')
 
+	const [ErrorMessage, SetErrorMessage] = useState<string>('')
+
 	useTitle(title)
 
 	const NavigateHook = useNavigate()
@@ -32,7 +36,7 @@ const EnterPasswordPage: FC<{ title: string; nextPageUrl: string }> = ({
 	}, [NavigateHook])
 
 	const Next = useCallback(() => {
-		if (Password !== 'Admin') return
+		if (Password !== 'Admin') return SetErrorMessage('Wrong password.')
 
 		NavigateHook(nextPageUrl, {
 			state: { password: true } satisfies IPasswordEnteredState,
@@ -44,18 +48,21 @@ const EnterPasswordPage: FC<{ title: string; nextPageUrl: string }> = ({
 			<TitleContainer>
 				<Title>{title}</Title>
 			</TitleContainer>
-			<ContentContainer>
-				<Input
-					id='password'
-					inputProps={{
-						type: 'password',
-						value: Password,
-						onChange: event => SetPassword(event.target.value),
-					}}
-					style={{ width: '40%' }}
-					text='Password'
-				/>
-			</ContentContainer>
+			<VerticalContentContainer>
+				<InnerContentContainer>
+					<Input
+						id='password'
+						inputProps={{
+							type: 'password',
+							value: Password,
+							onChange: event => SetPassword(event.target.value),
+						}}
+						style={{ width: '40%' }}
+						text='Password'
+					/>
+				</InnerContentContainer>
+				<ErrorText>{ErrorMessage}</ErrorText>
+			</VerticalContentContainer>
 			<ButtonsContainer>
 				<CreateMeetingButton onClick={Back}>Back</CreateMeetingButton>
 				<CreateMeetingButton onClick={Next}>Next</CreateMeetingButton>
