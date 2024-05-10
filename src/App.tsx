@@ -3,6 +3,7 @@ import { FC } from 'react'
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import ErrorPage from 'Components/ErrorPage/ErrorPage'
+import MainOutlet from 'Components/MainOutlet/MainOutlet'
 
 import { DataProvider } from 'Contexts/Data/Data'
 import { TitleProvider } from 'Contexts/Title'
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
 	{
 		path: '/',
 		errorElement: <ErrorPage />,
+		element: <MainOutlet />,
 		children: [
 			{
 				index: true,

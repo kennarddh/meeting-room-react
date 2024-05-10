@@ -1,5 +1,5 @@
 const FormatDate = (date: Date): string => {
-	return new Intl.DateTimeFormat('id-ID', {
+	return new Intl.DateTimeFormat('en-US', {
 		dateStyle: 'full',
 	}).format(date)
 }
