@@ -7,6 +7,7 @@ import MainOutlet from 'Components/MainOutlet/MainOutlet'
 import { DataProvider } from 'Contexts/Data/Data'
 import { TitleProvider } from 'Contexts/Title'
 
+import CreateMeeting2 from 'Pages/CreateMeeting/CreateMeeting2/CreateMeeting2'
 import EnterPasswordPage from 'Pages/EnterPasswordPage/EnterPasswordPage'
 import ErrorPage from 'Pages/ErrorPage/ErrorPage'
 import Home from 'Pages/Home/Home'
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
 								nextPageUrl='/new/2'
 							/>
 						),
+					},
+					{
+						path: '2',
+						element: <CreateMeeting2 />,
 					},
 				],
 			},

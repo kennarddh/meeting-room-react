@@ -15,13 +15,10 @@ import {
 	TitleContainer,
 } from 'Pages/Styles'
 
-const EnterPasswordPage: FC<{ title: string; nextPageUrl: string }> = ({
-	title,
-	nextPageUrl,
-}) => {
+const CreateMeeting2: FC = () => {
 	const [Password, SetPassword] = useState('')
 
-	useTitle(title)
+	useTitle('Create Meeting: Step 2')
 
 	const NavigateHook = useNavigate()
 
@@ -32,7 +29,7 @@ const EnterPasswordPage: FC<{ title: string; nextPageUrl: string }> = ({
 	const Next = useCallback(() => {
 		if (Password !== 'Admin') return
 
-		NavigateHook(nextPageUrl, {
+		NavigateHook('../3', {
 			state: { password: true } as IPasswordEnteredState,
 		})
 	}, [Password, NavigateHook])
@@ -40,7 +37,7 @@ const EnterPasswordPage: FC<{ title: string; nextPageUrl: string }> = ({
 	return (
 		<Container>
 			<TitleContainer>
-				<Title>{title}</Title>
+				<Title>Create Meeting: Step 2</Title>
 			</TitleContainer>
 			<ContentContainer>
 				<Input
@@ -66,4 +63,4 @@ const EnterPasswordPage: FC<{ title: string; nextPageUrl: string }> = ({
 	)
 }
 
-export default EnterPasswordPage
+export default CreateMeeting2
