@@ -4,6 +4,8 @@ import Input from 'Components/Input/Input'
 import LinearGradientContainer from 'Components/LinearGradientContainer/LinearGradientContainer'
 import Title from 'Components/Title/Title'
 
+import useTitle from 'Hooks/useTitle'
+
 import {
 	ButtonsContainer,
 	Container,
@@ -13,11 +15,13 @@ import {
 } from '../Styles'
 
 const CreateMeeting1: FC = () => {
+	useTitle('Create Meeting: Step 1')
+
 	return (
 		<LinearGradientContainer>
 			<Container>
 				<TitleContainer>
-					<Title>Create Meeting</Title>
+					<Title>Create Meeting: Step 1</Title>
 				</TitleContainer>
 				<ContentContainer>
 					<Input
