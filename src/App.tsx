@@ -2,13 +2,13 @@ import { FC } from 'react'
 
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 
-import ErrorPage from 'Pages/ErrorPage/ErrorPage'
 import MainOutlet from 'Components/MainOutlet/MainOutlet'
 
 import { DataProvider } from 'Contexts/Data/Data'
 import { TitleProvider } from 'Contexts/Title'
 
-import CreateMeeting1 from 'Pages/CreateMeeting/CreateMeeting1/CreateMeeting1'
+import EnterPasswordPage from 'Pages/EnterPasswordPage/EnterPasswordPage'
+import ErrorPage from 'Pages/ErrorPage/ErrorPage'
 import Home from 'Pages/Home/Home'
 
 const router = createBrowserRouter([
@@ -30,7 +30,12 @@ const router = createBrowserRouter([
 					},
 					{
 						path: '1',
-						element: <CreateMeeting1 />,
+						element: (
+							<EnterPasswordPage
+								title='Create Meeting: Step 1'
+								nextPageUrl='/new/2'
+							/>
+						),
 					},
 				],
 			},
