@@ -17,6 +17,11 @@ const Button = styled.button<IButton>`
 	border: none;
 
 	cursor: pointer;
+
+	&:disabled {
+		background-color: #808080;
+		cursor: not-allowed;
+	}
 `
 
 export default Button

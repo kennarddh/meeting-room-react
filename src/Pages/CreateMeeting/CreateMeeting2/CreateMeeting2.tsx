@@ -37,7 +37,7 @@ const CreateMeeting2: FC = () => {
 
 	const Next = useCallback(() => {
 		if (DepartementID === null) return
- 
+
 		NavigateHook('../3', {
 			state: {
 				departmentID: DepartementID,
