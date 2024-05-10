@@ -13,7 +13,10 @@ const FormatRelativeDateTime = (millis: number): string => {
 	console.log({ millis })
 	for (const [unit, divisor] of Object.entries(units))
 		if (Math.abs(millis) > divisor || unit === 'second')
-			return formatter.format(Math.round(millis / divisor), unit as any) // Can't cast to RelativeTimeFormatUnit for some reason.
+			return formatter.format(
+				Math.round(millis / divisor),
+				unit as Intl.RelativeTimeFormatUnit,
+			)
 
 	return 'Unknown Unit'
 }
