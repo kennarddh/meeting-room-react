@@ -22,8 +22,8 @@ import {
 import { IDepartementSelectedState } from '../CreateMeeting2/Types'
 
 const CreateMeeting3: FC = () => {
-	const [StartDate, SetStartDate] = useState<Date | null>(new Date())
-	const [EndDate, SetEndDate] = useState<Date | null>(new Date())
+	const [StartDatetime, SetStartDatetime] = useState<Date | null>(new Date())
+	const [EndDatetime, SetEndDatetime] = useState<Date | null>(new Date())
 
 	const [ErrorMessage, SetErrorMessage] = useState<string>('')
 
@@ -63,17 +63,17 @@ const CreateMeeting3: FC = () => {
 			<VerticalContentContainer>
 				<InnerContentContainer>
 					<DateTimePickerInput
-						text='Start Date'
+						text='Start Datetime'
 						required
-						value={StartDate}
-						onChange={value => SetStartDate(value)}
+						value={StartDatetime}
+						onChange={value => SetStartDatetime(value)}
 						style={{ width: '40%' }}
 					/>
 					<DateTimePickerInput
-						text='End Date'
+						text='End Datetime'
 						required
-						value={EndDate}
-						onChange={value => SetEndDate(value)}
+						value={EndDatetime}
+						onChange={value => SetEndDatetime(value)}
 						style={{ width: '40%' }}
 					/>
 				</InnerContentContainer>
@@ -83,7 +83,7 @@ const CreateMeeting3: FC = () => {
 				<CreateMeetingButton onClick={Back}>Back</CreateMeetingButton>
 				<CreateMeetingButton
 					onClick={Next}
-					disabled={StartDate === null || EndDate === null}
+					disabled={StartDatetime === null || EndDatetime === null}
 				>
 					Create
 				</CreateMeetingButton>
