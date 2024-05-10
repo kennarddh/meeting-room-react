@@ -101,6 +101,11 @@ export default defineConfig(({ mode }) => {
 					icons: [
 						{
 							type: 'image/png',
+							src: '/Icons/favicon-255x255.png',
+							sizes: '255x255',
+						},
+						{
+							type: 'image/png',
 							src: '/Icons/favicon-196x196.png',
 							sizes: '196x196',
 						},
