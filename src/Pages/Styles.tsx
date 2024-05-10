@@ -44,3 +44,31 @@ export const ButtonsContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 `
+
+export const VerticalContentContainer = styled(ContentContainer)`
+	flex-direction: column;
+`
+
+export const InnerContentContainer = styled.div`
+	width: 100%;
+	height: 50%;
+
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	gap: 20px;
+	flex-direction: row;
+`
+
+export const ErrorText = styled.p`
+	width: 100%;
+	height: 50%;
+
+	padding: 10px 20px;
+
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+
+	color: #ff0000;
+`
