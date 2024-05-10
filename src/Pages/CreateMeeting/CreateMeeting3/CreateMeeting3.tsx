@@ -34,7 +34,7 @@ const CreateMeeting3: FC = () => {
 
 	const NavigateHook = useNavigate()
 
-	const { CreateMeeting } = useData()
+	const { CreateMeeting, Meetings } = useData()
 
 	const { state } = useLocation()
 
@@ -111,6 +111,24 @@ const CreateMeeting3: FC = () => {
 		if (EndDatetime > maxDatetime)
 			return SetErrorMessage('End datetime cannot be greater than 17:00.')
 
+		for (const meeting of Meetings) {
+			if (
+				StartDatetime.getTime() >= meeting.startDatetime &&
+				StartDatetime.getTime() <= meeting.endDatetime
+			)
+				return SetErrorMessage(
+					'Start datetime overlapped with other meetings.',
+				)
+
+			if (
+				EndDatetime.getTime() >= meeting.startDatetime &&
+				EndDatetime.getTime() <= meeting.endDatetime
+			)
+				return SetErrorMessage(
+					'End datetime overlapped with other meetings.',
+				)
+		}
+
 		CreateMeeting({
 			id: crypto.randomUUID(),
 			departementID: State.departmentID,
@@ -118,10 +136,15 @@ const CreateMeeting3: FC = () => {
 			endDatetime: EndDatetime.getTime(),
 		})
 
-		// TODO: Check if datetime overlap with other meeting
-
 		NavigateHook('/')
-	}, [NavigateHook, SetErrorMessage, EndDatetime, StartDatetime, State])
+	}, [
+		NavigateHook,
+		EndDatetime,
+		StartDatetime,
+		State,
+		Meetings,
+		CreateMeeting,
+	])
 
 	if (
 		!(
