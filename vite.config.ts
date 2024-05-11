@@ -63,10 +63,8 @@ export default defineConfig(({ mode }) => {
 				},
 				registerType: 'prompt',
 				workbox: {
-					globPatterns: [
-						'**/*.{js,css,html,ico,png,svg,webmanifest}',
-					],
-					globDirectory: path.join(__dirname, 'public'),
+					globPatterns: ['**/*'],
+					globDirectory: __dirname,
 					cleanupOutdatedCaches: true,
 					sourcemap: true,
 					runtimeCaching: [
@@ -80,6 +78,7 @@ export default defineConfig(({ mode }) => {
 									'.png',
 									'.ico',
 									'.svg',
+									'/',
 								].some(suffix => url.pathname.endsWith(suffix))
 							},
 							handler: 'CacheFirst',
