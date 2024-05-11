@@ -7,7 +7,7 @@ import mkcert from 'vite-plugin-mkcert'
 import { VitePWA } from 'vite-plugin-pwa'
 import svgr from 'vite-plugin-svgr'
 
-import { dirname, resolve } from 'node:path'
+import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -64,7 +64,7 @@ export default defineConfig(({ mode }) => {
 				registerType: 'prompt',
 				workbox: {
 					globPatterns: ['**/*'],
-					globDirectory: __dirname,
+					globDirectory: join(__dirname, 'public'),
 					cleanupOutdatedCaches: true,
 					sourcemap: true,
 					runtimeCaching: [
