@@ -62,25 +62,6 @@ export default defineConfig(({ mode }) => {
 					navigateFallback: 'index.html',
 				},
 				registerType: 'prompt',
-				workbox: {
-					globPatterns: ['**/*'],
-					globDirectory: join(__dirname, 'public'),
-					cleanupOutdatedCaches: true,
-					sourcemap: true,
-					runtimeCaching: [
-						{
-							urlPattern: () => true,
-							handler: 'CacheFirst',
-							options: {
-								cacheName: 'static-cache',
-								expiration: {
-									maxEntries: 1000,
-									maxAgeSeconds: 60 * 60 * 24 * 365,
-								},
-							},
-						},
-					],
-				},
 				manifest: {
 					start_url: `${base}index.html`,
 					name: 'Meeting Room React',

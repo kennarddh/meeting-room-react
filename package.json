@@ -28,7 +28,6 @@
 	},
 	"homepage": "https://github.com/kennarddh/meeting-room-react#readme",
 	"devDependencies": {
-		"shx": "^0.3.4",
 		"@eslint/js": "^9.0.0",
 		"@trivago/prettier-plugin-sort-imports": "^4.3.0",
 		"@types/eslint": "^8.56.9",
@@ -52,6 +51,7 @@
 		"lint-staged": "^15.2.2",
 		"prettier": "^3.2.5",
 		"rimraf": "^5.0.5",
+		"shx": "^0.3.4",
 		"typescript": "^5.4.5",
 		"typescript-eslint": "^7.6.0",
 		"vite": "^5.2.8",
