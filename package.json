@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"start": "vite",
-		"build": "tsc && vite build",
+		"build": "tsc && vite build && shx cp ./build/index.html ./build/404.html",
 		"preview": "vite preview",
 		"lint:build": "tsc --project tsconfig.eslint.json",
 		"lint:check": "eslint --cache ./**/*.{ts,tsx,json} && tsc --noemit",
@@ -28,6 +28,7 @@
 	},
 	"homepage": "https://github.com/kennarddh/meeting-room-react#readme",
 	"devDependencies": {
+		"shx": "^0.3.4",
 		"@eslint/js": "^9.0.0",
 		"@trivago/prettier-plugin-sort-imports": "^4.3.0",
 		"@types/eslint": "^8.56.9",
