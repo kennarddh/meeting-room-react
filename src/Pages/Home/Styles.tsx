@@ -23,11 +23,13 @@ export const LeftTitle = styled.h2`
 	width: 100%;
 	height: 30%;
 
-	text-align: center;
-
 	color: #ffffff;
 
-	font-size: 100px;
+	font-size: 5vw;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `
 
 export const LeftText = styled.p`

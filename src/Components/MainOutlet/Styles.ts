@@ -32,4 +32,8 @@ export const LeftNav = styled.div``
 
 export const DateTime = styled.h3`
 	color: #ffffff;
+
+	@media screen and (max-width: 600px) {
+		font-size: 16px;
+	}
 `

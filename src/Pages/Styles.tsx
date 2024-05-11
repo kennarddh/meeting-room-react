@@ -8,8 +8,10 @@ export const CreateMeetingButton = styled(Button)`
 `
 
 export const Container = styled.div`
+	margin-top: 20px;
+
 	width: 100%;
-	height: 100%;
+	height: calc(100% - 20px);
 
 	display: flex;
 	flex-direction: column;
@@ -43,6 +45,10 @@ export const ButtonsContainer = styled.div`
 
 	display: flex;
 	justify-content: space-between;
+
+	@media screen and (max-height: 500px) {
+		padding: 0 10px 10px 10px;
+	}
 `
 
 export const VerticalContentContainer = styled(ContentContainer)`
