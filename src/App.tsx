@@ -2,7 +2,13 @@ import { FC } from 'react'
 
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 
+import { MantineProvider } from '@mantine/core'
+import '@mantine/core/styles.css'
+import '@mantine/notifications/styles.css'
+import { Notifications } from '@mantine/notifications'
+
 import MainOutlet from 'Components/MainOutlet/MainOutlet'
+import PWAManager from 'Components/PWAManager/PWAManager'
 
 import { DataProvider } from 'Contexts/Data/Data'
 import { TitleProvider } from 'Contexts/Title'
@@ -79,11 +85,15 @@ const router = createBrowserRouter(
 
 const App: FC = () => {
 	return (
-		<TitleProvider>
-			<DataProvider>
-				<RouterProvider router={router} />
-			</DataProvider>
-		</TitleProvider>
+		<MantineProvider>
+			<TitleProvider>
+				<DataProvider>
+					<RouterProvider router={router} />
+					<PWAManager />
+					<Notifications />
+				</DataProvider>
+			</TitleProvider>
+		</MantineProvider>
 	)
 }
 

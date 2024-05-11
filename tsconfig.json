@@ -34,7 +34,8 @@
 		"jsx": "react-jsx",
 		"baseUrl": "src",
 		"removeComments": true,
-		"sourceMap": true
+		"sourceMap": true,
+		"types": ["vite-plugin-pwa/react"]
 	},
 	"include": ["src"],
 	"references": [

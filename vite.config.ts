@@ -7,7 +7,7 @@ import mkcert from 'vite-plugin-mkcert'
 import { VitePWA } from 'vite-plugin-pwa'
 import svgr from 'vite-plugin-svgr'
 
-import { dirname, resolve } from 'node:path'
+import path, { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -61,11 +61,33 @@ export default defineConfig(({ mode }) => {
 					type: 'module',
 					navigateFallback: 'index.html',
 				},
-				registerType: 'autoUpdate',
+				registerType: 'prompt',
 				workbox: {
-					globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
-					cleanupOutdatedCaches: false,
+					cleanupOutdatedCaches: true,
 					sourcemap: true,
+					runtimeCaching: [
+						{
+							urlPattern: ({ url }) => {
+								return [
+									'.js',
+									'.html',
+									'.css',
+									'.webmanifest',
+									'.png',
+									'.ico',
+									'.svg',
+								].some(suffix => url.pathname.endsWith(suffix))
+							},
+							handler: 'CacheFirst',
+							options: {
+								cacheName: 'static-cache',
+								expiration: {
+									maxEntries: 250,
+									maxAgeSeconds: 60 * 60 * 24 * 365,
+								},
+							},
+						},
+					],
 				},
 				includeAssets: [
 					`${base}/Icons/apple-touch-icon57x57.png`,
