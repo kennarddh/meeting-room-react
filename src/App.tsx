@@ -32,6 +32,10 @@ const router = createBrowserRouter(
 					element: <Home />,
 				},
 				{
+					path: 'index.html',
+					element: <Navigate to='/' />,
+				},
+				{
 					path: 'new',
 					children: [
 						{

@@ -74,7 +74,7 @@ export default defineConfig(({ mode }) => {
 							options: {
 								cacheName: 'static-cache',
 								expiration: {
-									maxEntries: 250,
+									maxEntries: 1000,
 									maxAgeSeconds: 60 * 60 * 24 * 365,
 								},
 							},
