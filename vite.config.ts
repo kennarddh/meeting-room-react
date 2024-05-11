@@ -69,18 +69,7 @@ export default defineConfig(({ mode }) => {
 					sourcemap: true,
 					runtimeCaching: [
 						{
-							urlPattern: ({ url }) => {
-								return [
-									'.js',
-									'.html',
-									'.css',
-									'.webmanifest',
-									'.png',
-									'.ico',
-									'.svg',
-									'/',
-								].some(suffix => url.pathname.endsWith(suffix))
-							},
+							urlPattern: () => true,
 							handler: 'CacheFirst',
 							options: {
 								cacheName: 'static-cache',
