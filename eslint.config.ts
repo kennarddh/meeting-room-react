@@ -81,6 +81,12 @@ export default tsEslint.config(
 					tsx: 'never',
 				},
 			],
+			'import/no-unresolved': [
+				'error',
+				{
+					ignore: ['^virtual:'],
+				},
+			],
 			'react/jsx-filename-extension': [
 				1,
 				{ extensions: ['.ts', '.tsx'] },

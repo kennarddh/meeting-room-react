@@ -20,21 +20,19 @@ const MainOutlet: FC = () => {
 	}, [])
 
 	return (
-		<>
-			<Container>
-				<Header>
-					<Nav>
-						<Title>Meeting Room</Title>
-						<LeftNav>
-							<DateTime>{FormatDateTime(CurrentDate)}</DateTime>
-						</LeftNav>
-					</Nav>
-				</Header>
-				<Content>
-					<Outlet />
-				</Content>
-			</Container>
-		</>
+		<Container>
+			<Header>
+				<Nav>
+					<Title>Meeting Room</Title>
+					<LeftNav>
+						<DateTime>{FormatDateTime(CurrentDate)}</DateTime>
+					</LeftNav>
+				</Nav>
+			</Header>
+			<Content>
+				<Outlet />
+			</Content>
+		</Container>
 	)
 }
 
