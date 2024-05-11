@@ -122,7 +122,8 @@ export default defineConfig(({ mode }) => {
 					short_name: 'Meeting Room',
 					description: 'Meeting Room React',
 					theme_color: '#458de6',
-					display: 'standalone',
+					orientation: 'landscape',
+					display: 'fullscreen',
 					icons: [
 						{
 							type: 'image/png',
