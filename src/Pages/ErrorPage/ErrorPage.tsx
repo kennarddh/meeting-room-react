@@ -23,6 +23,8 @@ const ErrorPage: FC = () => {
 		errorStatus = error.status
 	}
 
+	console.log({ error })
+
 	const errorMessage = errorStatus
 		? errorStatus === 404
 			? 'Page Not Found'
