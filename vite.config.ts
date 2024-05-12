@@ -67,7 +67,7 @@ export default defineConfig(({ mode }) => {
 					start_url: `${base}index.html`,
 					name: 'Meeting Room React',
 					short_name: 'Meeting Room',
-					description: 'Meeting Room React',
+					description: 'Manage meeting room schedules.',
 					theme_color: '#458de6',
 					orientation: 'landscape',
 					display: 'fullscreen',
