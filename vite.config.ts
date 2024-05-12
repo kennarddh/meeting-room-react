@@ -7,7 +7,7 @@ import mkcert from 'vite-plugin-mkcert'
 import { VitePWA } from 'vite-plugin-pwa'
 import svgr from 'vite-plugin-svgr'
 
-import { dirname, join, resolve } from 'node:path'
+import { dirname,  resolve } from 'node:path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -107,28 +107,28 @@ export default defineConfig(({ mode }) => {
 							src: `${base}Screenshots/20.9/HomeAvailable.png`,
 							sizes: '3840x1728',
 							type: 'image/png',
-							form_factor: 'wide',
+							form_factor: 'narrow',
 							label: 'Home page showing room is avaiable',
 						},
 						{
 							src: `${base}Screenshots/20.9/HomeRoomBusy.png`,
 							sizes: '3840x1728',
 							type: 'image/png',
-							form_factor: 'wide',
+							form_factor: 'narrow',
 							label: 'Home page showing room is busy/not available',
 						},
 						{
 							src: `${base}Screenshots/20.9/CreateMeetingStep2.png`,
 							sizes: '3840x1728',
 							type: 'image/png',
-							form_factor: 'wide',
+							form_factor: 'narrow',
 							label: 'Choosing department when booking new meeting.',
 						},
 						{
 							src: `${base}Screenshots/20.9/CreateMeetingStep3.png`,
 							sizes: '3840x1728',
 							type: 'image/png',
-							form_factor: 'wide',
+							form_factor: 'narrow',
 							label: 'Choosing datetime when booking new meeting.',
 						},
 					],
