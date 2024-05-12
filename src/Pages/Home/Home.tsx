@@ -3,7 +3,6 @@ import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import FormatDate from 'Utils/FormatDate'
-import FormatDateTime from 'Utils/FormatDateTime'
 import FormatRelativeDateTime from 'Utils/FormatRelativeDateTime'
 import FormatTime from 'Utils/FormatTime'
 
@@ -67,9 +66,10 @@ const Home: FC = () => {
 						)
 					) : (
 						<>
-							Meeting is on going until{' '}
-							{FormatDateTime(
-								new Date(CurrentlyActiveMeeting.endDatetime),
+							Meeting will end{' '}
+							{FormatRelativeDateTime(
+								CurrentlyActiveMeeting.startDatetime -
+									new Date().getTime(),
 							)}
 							, Organized by{' '}
 							<strong>
