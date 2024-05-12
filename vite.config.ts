@@ -77,28 +77,28 @@ export default defineConfig(({ mode }) => {
 					screenshots: [
 						{
 							src: `${base}Screenshots/16.9/HomeAvailable.png`,
-							sizes: '3940x2160',
+							sizes: '3840x2160',
 							type: 'image/png',
 							form_factor: 'wide',
 							label: 'Home page showing room is avaiable',
 						},
 						{
 							src: `${base}Screenshots/16.9/HomeRoomBusy.png`,
-							sizes: '3940x2160',
+							sizes: '3840x2160',
 							type: 'image/png',
 							form_factor: 'wide',
 							label: 'Home page showing room is busy/not available',
 						},
 						{
 							src: `${base}Screenshots/16.9/CreateMeetingStep2.png`,
-							sizes: '3940x2160',
+							sizes: '3840x2160',
 							type: 'image/png',
 							form_factor: 'wide',
 							label: 'Choosing department when booking new meeting.',
 						},
 						{
 							src: `${base}Screenshots/16.9/CreateMeetingStep3.png`,
-							sizes: '3940x2160',
+							sizes: '3840x2160',
 							type: 'image/png',
 							form_factor: 'wide',
 							label: 'Choosing datetime when booking new meeting.',
