@@ -10,7 +10,7 @@ import IsSameDate from 'Utils/IsSameDate'
 import useData from 'Hooks/useData'
 import useTitle from 'Hooks/useTitle'
 
-import Departements from 'Constants/Departements'
+import Departments from 'Constants/Departments'
 
 import {
 	ButtonsContainer,
@@ -22,7 +22,7 @@ import {
 	VerticalContentContainer,
 } from 'Pages/Styles'
 
-import { IDepartementSelectedState } from '../CreateMeeting2/Types'
+import { IDepartmentSelectedState } from '../CreateMeeting2/Types'
 
 const CreateMeeting3: FC = () => {
 	const [StartDatetime, SetStartDatetime] = useState<Date | null>(new Date())
@@ -38,7 +38,7 @@ const CreateMeeting3: FC = () => {
 
 	const { state } = useLocation()
 
-	const State = state as undefined | Partial<IDepartementSelectedState>
+	const State = state as undefined | Partial<IDepartmentSelectedState>
 
 	const Back = useCallback(() => {
 		NavigateHook(-1)
@@ -48,8 +48,8 @@ const CreateMeeting3: FC = () => {
 		if (
 			!(
 				State?.departmentID &&
-				Departements.map(deparatment => deparatment.id).includes(
-					State.departmentID as (typeof Departements)[number]['id'],
+				Departments.map(deparatment => deparatment.id).includes(
+					State.departmentID as (typeof Departments)[number]['id'],
 				)
 			)
 		)
@@ -137,7 +137,7 @@ const CreateMeeting3: FC = () => {
 
 		CreateMeeting({
 			id: crypto.randomUUID(),
-			departementID: State.departmentID,
+			departmentID: State.departmentID,
 			startDatetime: StartDatetime.getTime(),
 			endDatetime: EndDatetime.getTime(),
 		})
@@ -155,8 +155,8 @@ const CreateMeeting3: FC = () => {
 	if (
 		!(
 			State?.departmentID &&
-			Departements.map(deparatment => deparatment.id).includes(
-				State.departmentID as (typeof Departements)[number]['id'],
+			Departments.map(deparatment => deparatment.id).includes(
+				State.departmentID as (typeof Departments)[number]['id'],
 			)
 		)
 	)

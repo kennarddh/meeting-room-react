@@ -22,7 +22,7 @@ export interface IMeeting {
 	id: string
 	startDatetime: number
 	endDatetime: number
-	departementID: string
+	departmentID: string
 }
 
 export interface IData {

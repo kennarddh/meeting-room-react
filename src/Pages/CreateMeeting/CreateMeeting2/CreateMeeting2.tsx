@@ -6,7 +6,7 @@ import Title from 'Components/Title/Title'
 
 import useTitle from 'Hooks/useTitle'
 
-import Departements from 'Constants/Departements'
+import Departments from 'Constants/Departments'
 
 import { IPasswordEnteredState } from 'Pages/EnterPasswordPage/Types'
 import {
@@ -18,10 +18,10 @@ import {
 } from 'Pages/Styles'
 
 import { DepartmentButton, DepartmentsContainer } from './Styles'
-import { IDepartementSelectedState } from './Types'
+import { IDepartmentSelectedState } from './Types'
 
 const CreateMeeting2: FC = () => {
-	const [DepartementID, SetDepartementID] = useState<string | null>(null)
+	const [DepartmentID, SetDepartmentID] = useState<string | null>(null)
 
 	useTitle('Create Meeting: Step 2')
 
@@ -36,14 +36,14 @@ const CreateMeeting2: FC = () => {
 	}, [NavigateHook])
 
 	const Next = useCallback(() => {
-		if (DepartementID === null) return
+		if (DepartmentID === null) return
 
 		NavigateHook('../3', {
 			state: {
-				departmentID: DepartementID,
-			} satisfies IDepartementSelectedState,
+				departmentID: DepartmentID,
+			} satisfies IDepartmentSelectedState,
 		})
-	}, [NavigateHook, DepartementID])
+	}, [NavigateHook, DepartmentID])
 
 	if (!State?.password) return <Navigate to='../' />
 
@@ -54,13 +54,13 @@ const CreateMeeting2: FC = () => {
 			</TitleContainer>
 			<ContentContainer>
 				<DepartmentsContainer>
-					{Departements.map(departement => (
+					{Departments.map(department => (
 						<DepartmentButton
-							key={departement.id}
-							onClick={() => SetDepartementID(departement.id)}
-							$selected={DepartementID === departement.id}
+							key={department.id}
+							onClick={() => SetDepartmentID(department.id)}
+							$selected={DepartmentID === department.id}
 						>
-							{departement.name}
+							{department.name}
 						</DepartmentButton>
 					))}
 				</DepartmentsContainer>
@@ -69,7 +69,7 @@ const CreateMeeting2: FC = () => {
 				<CreateMeetingButton onClick={Back}>Back</CreateMeetingButton>
 				<CreateMeetingButton
 					onClick={Next}
-					disabled={DepartementID === null}
+					disabled={DepartmentID === null}
 				>
 					Next
 				</CreateMeetingButton>

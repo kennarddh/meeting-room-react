@@ -1,3 +1,3 @@
-export interface IDepartementSelectedState {
+export interface IDepartmentSelectedState {
 	departmentID: string
 }

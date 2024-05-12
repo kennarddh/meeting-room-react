@@ -1,11 +1,11 @@
-export interface IDepartement {
+export interface IDepartment {
 	id: string
 	name: string
 }
 
-export type IDepartements = IDepartement[]
+export type IDepartments = IDepartment[]
 
-const Departements = [
+const Departments = [
 	{ id: 'operation', name: 'Operation' },
 	{ id: 'generalAffair', name: 'General Affair' },
 	{ id: 'finance', name: 'Finance' },
@@ -13,6 +13,6 @@ const Departements = [
 	{ id: 'project', name: 'Project' },
 	{ id: 'marketing', name: 'Marketing' },
 	{ id: 'executive', name: 'Executive' },
-] as const satisfies IDepartements
+] as const satisfies IDepartments
 
-export default Departements
+export default Departments

@@ -9,7 +9,7 @@ import FormatTime from 'Utils/FormatTime'
 import useData from 'Hooks/useData'
 import useTitle from 'Hooks/useTitle'
 
-import Departements from 'Constants/Departements'
+import Departments from 'Constants/Departments'
 
 import { IDeleteMeetingState } from 'Pages/DeleteMeeting/Types'
 
@@ -54,10 +54,10 @@ const Home: FC = () => {
 								)}
 								, Organized by{' '}
 								<strong>
-									{Departements.find(
+									{Departments.find(
 										department =>
 											department.id ===
-											NextMeeting.departementID,
+											NextMeeting.departmentID,
 									)?.name ?? 'Unknown Department'}
 								</strong>
 							</>
@@ -73,10 +73,10 @@ const Home: FC = () => {
 							)}
 							, Organized by{' '}
 							<strong>
-								{Departements.find(
+								{Departments.find(
 									department =>
 										department.id ===
-										CurrentlyActiveMeeting.departementID,
+										CurrentlyActiveMeeting.departmentID,
 								)?.name ?? 'Unknown Department'}
 							</strong>
 						</>
@@ -133,10 +133,10 @@ const Home: FC = () => {
 									</IncomingMeetingDatetime>
 									<IncomingMeetingText>
 										Room Occupied by{' '}
-										{Departements.find(
+										{Departments.find(
 											department =>
 												department.id ===
-												meeting.departementID,
+												meeting.departmentID,
 										)?.name ?? 'Unknown Department'}
 									</IncomingMeetingText>
 								</IncomingMeeting>
