@@ -63,6 +63,7 @@ export default defineConfig(({ mode }) => {
 				},
 				registerType: 'prompt',
 				manifest: {
+					id: 'meeting-room-react',
 					start_url: `${base}index.html`,
 					name: 'Meeting Room React',
 					short_name: 'Meeting Room',
@@ -70,6 +71,7 @@ export default defineConfig(({ mode }) => {
 					theme_color: '#458de6',
 					orientation: 'landscape',
 					display: 'fullscreen',
+					categories: ['events', 'utilities', 'business'],
 					icons: [
 						{
 							type: 'image/png',
