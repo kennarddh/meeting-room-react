@@ -72,6 +72,8 @@ export default defineConfig(({ mode }) => {
 					orientation: 'landscape',
 					display: 'fullscreen',
 					categories: ['events', 'utilities', 'business'],
+					dir: 'ltr',
+					display_override: ['fullscreen'],
 					icons: [
 						{
 							type: 'image/png',
