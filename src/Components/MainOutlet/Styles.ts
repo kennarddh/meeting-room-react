@@ -21,11 +21,17 @@ export const Header = styled.div`
 `
 
 export const Nav = styled.div`
+	height: 100%;
+
 	padding: 10px;
 
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	@media screen and (min-width: 2000px) {
+		padding: 50px;
+	}
 `
 
 export const LeftNav = styled.div``
@@ -35,5 +41,9 @@ export const DateTime = styled.h3`
 
 	@media screen and (max-width: 600px) {
 		font-size: 16px;
+	}
+
+	@media screen and (min-width: 2000px) {
+		font-size: 2vw;
 	}
 `

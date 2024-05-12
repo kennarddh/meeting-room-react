@@ -41,6 +41,10 @@ export const LeftText = styled.p`
 	color: #ffffff;
 
 	font-size: 20px;
+
+	@media screen and (min-width: 2000px) {
+		font-size: 1.52vw;
+	}
 `
 
 export const BookMeetingButtonContainer = styled.div`
@@ -70,14 +74,26 @@ export const BookMeetingButton = styled.button`
 	&:hover {
 		background-color: #458de6;
 	}
+
+	@media screen and (min-width: 2000px) {
+		font-size: 1.5vw;
+		border: 10px solid #ffffff;
+		border-radius: 24px;
+	}
 `
 
 export const Right = styled.div`
 	width: 40%;
 	height: 100%;
 
+	padding-right: 10px;
+
 	display: flex;
 	flex-direction: column;
+
+	@media screen and (min-width: 2000px) {
+		padding-right: 50px;
+	}
 `
 
 export const RightTitle = styled.h3`
@@ -91,6 +107,11 @@ export const RightTitle = styled.h3`
 	justify-content: flex-end;
 
 	color: #ffffff;
+
+	@media screen and (min-width: 2000px) {
+		font-size: 1.5vw;
+		height: 5%;
+	}
 `
 
 export const IncomingMeetingsList = styled.div`
@@ -106,6 +127,10 @@ export const IncomingMeetingsList = styled.div`
 	padding-bottom: 20px;
 
 	overflow-y: scroll;
+
+	@media screen and (min-width: 2000px) {
+		height: 95%;
+	}
 `
 
 export const IncomingMeeting = styled.button`

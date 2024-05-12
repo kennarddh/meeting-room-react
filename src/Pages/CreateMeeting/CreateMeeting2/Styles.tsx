@@ -18,6 +18,8 @@ export const DepartmentButton = styled(Button)<{ $selected?: boolean }>`
 
 	background-color: ${({ $selected }) => ($selected ? '#5d43dc' : '#6596f4')};
 
+font-size:1vw;
+
 	&:hover {
 		background-color: #5d43dc;
 	}

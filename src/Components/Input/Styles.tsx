@@ -2,13 +2,13 @@ import styled from 'styled-components'
 
 export const StyledInput = styled.input`
 	width: 100%;
-	height: 30px;
+	height: 5dvh;
 
 	border: none;
-	border-bottom: 1px solid #ffffff;
+	border-bottom: 0.3dvh solid #ffffff;
 
 	padding: 5px;
-	font-size: 18px;
+	font-size: 1vw;
 
 	background-color: transparent;
 
@@ -27,4 +27,6 @@ export const StyledLabel = styled.label`
 	gap: 5px;
 
 	color: #ffffff;
+
+	font-size: 1vw;
 `

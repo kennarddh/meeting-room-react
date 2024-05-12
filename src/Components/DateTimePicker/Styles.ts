@@ -7,9 +7,9 @@ import styled from 'styled-components'
 export const StyledDateTimePicker = styled(ReactDateTimePicker)`
 	& .react-datetime-picker__wrapper {
 		padding: 5px;
-		border-radius: 5px;
+		border-radius: 0.3vw;
 
-		border: 2px solid #ffffff;
+		border: 0.15vw solid #ffffff;
 	}
 
 	& .react-datetime-picker__inputGroup__divider,

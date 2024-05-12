@@ -22,6 +22,10 @@ const Button = styled.button<IButton>`
 		background-color: #808080;
 		cursor: not-allowed;
 	}
+
+	@media screen and (min-width: 2000px) {
+		border-radius: 25px;
+	}
 `
 
 export default Button

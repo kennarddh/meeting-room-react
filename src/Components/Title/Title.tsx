@@ -10,6 +10,10 @@ const Title = styled.h1`
 	@media screen and (max-width: 800px) {
 		font-size: 20px;
 	}
+
+	@media screen and (min-width: 2000px) {
+		font-size: 2vw;
+	}
 `
 
 export default Title

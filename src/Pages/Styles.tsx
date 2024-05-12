@@ -3,8 +3,10 @@ import { styled } from 'styled-components'
 import Button from 'Components/Button/Button'
 
 export const CreateMeetingButton = styled(Button)`
-	width: 200px;
+	width: 30%;
 	height: 100%;
+
+	font-size: 1.5vw;
 `
 
 export const Container = styled.div`
@@ -46,6 +48,10 @@ export const ButtonsContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 
+	@media screen and (min-height: 1000px) {
+		padding: 0 50px 50px 50px;
+	}
+
 	@media screen and (max-height: 500px) {
 		padding: 0 10px 10px 10px;
 	}
@@ -77,4 +83,6 @@ export const ErrorText = styled.p`
 	align-items: flex-start;
 
 	color: #ff0000;
+
+	font-size: 2vw;
 `
