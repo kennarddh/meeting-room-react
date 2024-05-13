@@ -5,7 +5,7 @@ import { ILinearGradientContainer } from './Types'
 const LinearGradientContainer = styled.div<ILinearGradientContainer>`
 	background: linear-gradient(#458de6, #5d43dc);
 
-	height: 100vh;
+	height: 100dvh;
 
 	display: flex;
 	justify-content: center;

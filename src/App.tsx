@@ -1,7 +1,8 @@
-import { FC } from 'react'
+import { FC, Suspense, lazy } from 'react'
 
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 
+import '@kennarddh/react-spinner/build/style.css'
 import { MantineProvider } from '@mantine/core'
 import '@mantine/core/styles.css'
 import { Notifications } from '@mantine/notifications'
@@ -13,12 +14,20 @@ import PWAManager from 'Components/PWAManager/PWAManager'
 import { DataProvider } from 'Contexts/Data/Data'
 import { TitleProvider } from 'Contexts/Title'
 
-import CreateMeeting2 from 'Pages/CreateMeeting/CreateMeeting2/CreateMeeting2'
-import CreateMeeting3 from 'Pages/CreateMeeting/CreateMeeting3/CreateMeeting3'
-import DeleteMeeting from 'Pages/DeleteMeeting/DeleteMeeting'
-import EnterPasswordPage from 'Pages/EnterPasswordPage/EnterPasswordPage'
-import ErrorPage from 'Pages/ErrorPage/ErrorPage'
-import Home from 'Pages/Home/Home'
+import LoadingPage from 'Pages/LoadingPage/LoadingPage'
+
+const CreateMeeting2 = lazy(
+	() => import('Pages/CreateMeeting/CreateMeeting2/CreateMeeting2'),
+)
+const CreateMeeting3 = lazy(
+	() => import('Pages/CreateMeeting/CreateMeeting3/CreateMeeting3'),
+)
+const DeleteMeeting = lazy(() => import('Pages/DeleteMeeting/DeleteMeeting'))
+const EnterPasswordPage = lazy(
+	() => import('Pages/EnterPasswordPage/EnterPasswordPage'),
+)
+const ErrorPage = lazy(() => import('Pages/ErrorPage/ErrorPage'))
+const Home = lazy(() => import('Pages/Home/Home'))
 
 const router = createBrowserRouter(
 	[
@@ -92,9 +101,11 @@ const App: FC = () => {
 		<MantineProvider>
 			<TitleProvider>
 				<DataProvider>
-					<RouterProvider router={router} />
-					<PWAManager />
-					<Notifications />
+					<Suspense fallback={<LoadingPage />}>
+						<RouterProvider router={router} />
+						<PWAManager />
+						<Notifications />
+					</Suspense>
 				</DataProvider>
 			</TitleProvider>
 		</MantineProvider>
