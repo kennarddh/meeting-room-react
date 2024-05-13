@@ -35,7 +35,18 @@
 		"baseUrl": "src",
 		"removeComments": true,
 		"sourceMap": true,
-		"types": ["vite-plugin-pwa/react", "vite-plugin-pwa/client"]
+		"types": ["vite-plugin-pwa/react", "vite-plugin-pwa/client"],
+		"plugins": [
+			{
+				"name": "@styled/typescript-styled-plugin",
+				"lint": {
+					"duplicateProperties": "error",
+					"zeroUnits": "warning",
+					"ieHack": "error",
+					"important": "warning"
+				}
+			}
+		]
 	},
 	"include": ["src"],
 	"references": [
