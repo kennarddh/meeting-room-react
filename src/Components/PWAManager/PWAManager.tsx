@@ -60,9 +60,7 @@ const PWAManager: FC = () => {
 				<Button variant='subtle' onClick={Close}>
 					Cancel
 				</Button>
-				<Button onClick={() => UpdateServiceWorker(true)}>
-					Reload
-				</Button>
+				<Button onClick={() => UpdateServiceWorker()}>Reload</Button>
 			</Group>
 		</Modal>
 	)
