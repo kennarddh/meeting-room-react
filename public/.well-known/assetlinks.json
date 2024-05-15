@@ -1,0 +1,12 @@
+[
+	{
+		"relation": ["delegate_permission/common.handle_all_urls"],
+		"target": {
+			"namespace": "android_app",
+			"package_name": "io.github.kennarddh.meeting_room",
+			"sha256_cert_fingerprints": [
+				"4A:53:FB:47:D3:20:12:BE:42:47:44:97:E3:87:A3:B5:BA:75:57:8F:FA:03:DF:4E:12:14:B4:E6:42:41:25:2F"
+			]
+		}
+	}
+]
