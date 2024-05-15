@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"start": "vite",
-		"build": "npm run types:check && vite build && shx cp ./build/index.html ./build/404.html",
+		"build": "npm run types:check && vite build && shx cp ./build/index.html ./build/404.html && shx cp ./.well-known ./build/.well-known",
 		"preview": "vite preview",
 		"lint:build": "tsc --project tsconfig.eslint.json",
 		"lint:check": "eslint --cache ./**/*.{ts,tsx,json}",
