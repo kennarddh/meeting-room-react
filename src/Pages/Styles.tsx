@@ -61,15 +61,15 @@ export const VerticalContentContainer = styled(ContentContainer)`
 	flex-direction: column;
 `
 
-export const InnerContentContainer = styled.div`
+export const InnerContentContainer = styled.div<{ $vertical?: boolean }>`
 	width: 100%;
 	height: 50%;
 
 	display: flex;
 	justify-content: center;
-	align-items: flex-end;
+	align-items: ${props => (props.$vertical ? 'center' : 'flex-end')};
 	gap: 20px;
-	flex-direction: row;
+	flex-direction: ${props => (props.$vertical ? 'column' : 'row')};
 `
 
 export const ErrorText = styled.p`
@@ -85,4 +85,8 @@ export const ErrorText = styled.p`
 	color: #ff0000;
 
 	font-size: 2vw;
+`
+
+export const PasswordHintText = styled.p`
+	color: #ffffff;
 `

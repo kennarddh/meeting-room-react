@@ -23,7 +23,6 @@ export const StyledDateTimePicker = styled(ReactDateTimePicker)`
 
 	& .react-datetime-picker__inputGroup__input:focus,
 	& .react-datetime-picker__button:focus {
-		outline: none;
 		outline: 2px solid #ffffff;
 	}
 

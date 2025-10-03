@@ -13,6 +13,7 @@ import {
 	CreateMeetingButton,
 	ErrorText,
 	InnerContentContainer,
+	PasswordHintText,
 	TitleContainer,
 	VerticalContentContainer,
 } from 'Pages/Styles'
@@ -55,7 +56,7 @@ const EnterPasswordPage: FC<{
 				<Title>{title}</Title>
 			</TitleContainer>
 			<VerticalContentContainer>
-				<InnerContentContainer>
+				<InnerContentContainer $vertical>
 					<Input
 						id='password'
 						inputProps={{
@@ -66,7 +67,9 @@ const EnterPasswordPage: FC<{
 						style={{ width: '40%' }}
 						text='Password'
 					/>
-					<p>The password is "Admin"</p>
+					<PasswordHintText>
+						The password is &quot;Admin&quot;.
+					</PasswordHintText>
 				</InnerContentContainer>
 				<ErrorText>{ErrorMessage}</ErrorText>
 			</VerticalContentContainer>

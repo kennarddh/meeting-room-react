@@ -71,8 +71,10 @@ export const BookMeetingButton = styled.button`
 
 	cursor: pointer;
 
+	transition: scale 100ms linear;
+
 	&:hover {
-		background-color: #458de6;
+		scale: 1.05;
 	}
 
 	@media screen and (min-width: 2000px) {
