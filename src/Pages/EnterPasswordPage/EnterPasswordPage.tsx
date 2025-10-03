@@ -66,6 +66,7 @@ const EnterPasswordPage: FC<{
 						style={{ width: '40%' }}
 						text='Password'
 					/>
+					<p>The password is "Admin"</p>
 				</InnerContentContainer>
 				<ErrorText>{ErrorMessage}</ErrorText>
 			</VerticalContentContainer>
